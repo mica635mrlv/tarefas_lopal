@@ -12,19 +12,18 @@ public class Tarefa {
 	private LocalDateTime dataConclusao;
 	private Status status;
 	private Funcionario responsavel;
-	
-	//Método Construtor
+
+	// Método Construtor
 	public Tarefa(String titulo) {
 		this.titulo = titulo;
 	}
-	
+
 	public Tarefa(String titulo, LocalDateTime dataInicial) {
-		
+
 	}
 
-	
 	public Tarefa() {
-		
+
 	}
 
 	public String getTitulo() {
@@ -82,5 +81,5 @@ public class Tarefa {
 	public LocalDateTime getDataConclusao() {
 		return dataConclusao;
 	}
-	
+
 }
