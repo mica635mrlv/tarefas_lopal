@@ -73,7 +73,7 @@ public class FrameListaFuncionario {
 		scrollFuncionarios = new JScrollPane(tblFuncionarios);
 		scrollFuncionarios.setBounds(20, 65, 500, 300);
 			
-		btnNovo = new JButton("Cadrastrar");
+		btnNovo = new JButton("Cadastrar");
 		btnNovo.setBounds(20, 380, 100, 40);
 		btnNovo.addActionListener(new ActionListener() {
 			
