@@ -24,37 +24,28 @@ public class FrameInicial {
 	
 	private Font fontTitulo = new Font("Arial", Font.BOLD, 15);
 	
-	public FrameInicial(JFrame telaInicial) {
-		criarTela(telaInicial);
+	public FrameInicial() {
+		criarTela();
 	}
 
-	public void criarTela(JFrame telaInicial) {
-		JFrame tela = new JDialog(telaInicial, "Menu Inicial", false);
-		tela.setTitle("Menu Inicial");
-		tela.setSize(400, 230);
+	public void criarTela() {
+		JFrame tela = new JFrame();
+		tela.setTitle("Gerenciador de Tarefas");
+		tela.setSize(400, 190);
 		tela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		tela.setLocationRelativeTo(telaInicial);
+		tela.setLocationRelativeTo(null);
 		tela.setResizable(false);
 		tela.setLayout(null);
 		
 		Container painel = tela.getContentPane();
 		
 		lblInfo = new JLabel("Selecione a opção desejada:");
-		lblInfo.setBounds(84, 25, 240, 20);
+		lblInfo.setBounds(84, 35, 240, 20);
 		lblInfo.setFont(fontTitulo);
 	
-		btnTarefas = new JButton("Tarefas");
-		btnTarefas.setBounds(37, 60, 150, 50);
-//		btnTarefas.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				new FrameListaTarefa();
-//			}
-//		});
-				
-		btnFuncionarios = new JButton("Funcionarios");
-		btnFuncionarios.setBounds(197, 60, 150, 50);
+		btnFuncionarios = new JButton("Funcionários");
+		btnFuncionarios.setBounds(37, 70, 150, 40);
+		btnFuncionarios.setFont(new Font("Arial", Font.BOLD, 15));
 		btnFuncionarios.addActionListener(new ActionListener() {
 			
 			@Override
@@ -63,30 +54,20 @@ public class FrameInicial {
 			}
 		});
 		
-		btnSair = new JButton("Sair");
-		btnSair.setBounds(130, 125, 120, 40);
-
-		btnSair.addActionListener(new ActionListener() {
-
+		btnTarefas = new JButton("Tarefas");
+		btnTarefas.setBounds(197, 70, 150, 40);
+		btnTarefas.setFont(new Font("Arial", Font.BOLD, 15));
+		btnTarefas.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int resposta = JOptionPane.showConfirmDialog(
-						tela, 
-						"Confima a saída do sistema?", 
-						"Sair do Sistema",
-						JOptionPane.YES_NO_OPTION
-				);
-				
-				if (resposta == 0) {
-					tela.dispose();
-				}
+				new FrameListaTarefa();
 			}
-		});
+		});	
 		
 		painel.add(lblInfo);
 		painel.add(btnTarefas);
 		painel.add(btnFuncionarios);
-		painel.add(btnSair);
 		
 		tela.setVisible(true);
 		

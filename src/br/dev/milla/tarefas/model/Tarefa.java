@@ -13,17 +13,12 @@ public class Tarefa {
 	private Status status;
 	private Funcionario responsavel;
 
-	// Método Construtor
-	public Tarefa(String titulo) {
-		this.titulo = titulo;
+	public int getCodigo() {
+		return codigo;
 	}
 
-	public Tarefa(String titulo, LocalDateTime dataInicial) {
-
-	}
-
-	public Tarefa() {
-
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getTitulo() {
@@ -58,6 +53,14 @@ public class Tarefa {
 		this.prazo = prazo;
 	}
 
+	public LocalDateTime getDataConclusao() {
+		return dataConclusao;
+	}
+
+	public void setDataConclusao(LocalDateTime dataConclusao) {
+		this.dataConclusao = dataConclusao;
+	}
+
 	public Status getStatus() {
 		return status;
 	}
@@ -73,13 +76,10 @@ public class Tarefa {
 	public void setResponsavel(Funcionario responsavel) {
 		this.responsavel = responsavel;
 	}
-
-	public int getCodigo() {
-		return codigo;
-	}
-
-	public LocalDateTime getDataConclusao() {
-		return dataConclusao;
+	
+	@Override
+	public String toString() {
+		return this.codigo + "," + this.titulo + "," + this.descricao + "," + this.dataInicio + "," + this.prazo + "," + this.dataConclusao + "," + this.status + "," + this.responsavel + "\n";
 	}
 
 }
