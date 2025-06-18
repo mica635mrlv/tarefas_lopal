@@ -13,19 +13,19 @@ import br.dev.milla.tarefas.dao.FuncionarioDAO;
 import br.dev.milla.tarefas.model.Funcionario;
 import br.dev.milla.tarefas.model.Tarefa;
 import br.dev.milla.tarefas.ui.FrameFuncionario;
-import br.dev.milla.tarefas.ui.FrameInicial;
+import br.dev.milla.tarefas.gui.FrameInicial;
 import br.dev.milla.tarefas.ui.FrameListaFuncionario;
 import br.dev.milla.tarefas.ui.FrameTarefa;
 import br.dev.milla.tarefas.utils.Utils;
 
 public class Main {
 
-	private static String path = "C:\\Users\\25133008\\tarefa\\tarefas.txt";
+	private static String path = "C:\\Users\\milla\\OneDrive\\DS - SENAI\\tarefas.txt";
 
 	public static void main(String[] args) {
 
 		new FrameInicial();
 
 	}
-
+	
 }

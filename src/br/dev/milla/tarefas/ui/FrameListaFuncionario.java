@@ -46,8 +46,6 @@ public class FrameListaFuncionario {
 		lblTitulo.setFont(fontTitulo);
 		
 		//Criação da tabela
-//		String[] colunas = {"Código", "Nome","E-mail"};
-		
 		String[] colunas = new String[3];
 		colunas[0] = "Código";
 		colunas[1] = "Nome";

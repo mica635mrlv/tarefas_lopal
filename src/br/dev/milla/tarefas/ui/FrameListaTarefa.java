@@ -13,9 +13,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import br.dev.milla.tarefas.dao.FuncionarioDAO;
-import br.dev.milla.tarefas.dao.TarefasDAO;
+import br.dev.milla.tarefas.dao.TarefaDAO;
 import br.dev.milla.tarefas.model.Funcionario;
 import br.dev.milla.tarefas.model.Tarefa;
 
@@ -48,36 +49,8 @@ public class FrameListaTarefa {
 		lblTitulo.setBounds(20, 25, 500, 20);
 		lblTitulo.setFont(fontTitulo);
 		
-//		Criação da tabela
-		String[] colunas = {"Código", "Titulo", "Responsável"};
-		
-		String[] coluna = new String[4];
-		colunas[0] = "Código";
-		colunas[1] = "Titulo";
-		colunas[2] = "Responsável";
-		
-		// Obter lista de funcionários
-		TarefasDAO dao = new TarefasDAO(null);
-		
-		List<Tarefa> tarefa = dao.showTask();
-		
-		Object[][] dados = new Object[tarefa.size()][3];
-		
-		int linha = 0;
-		for(Tarefa t : tarefa) {
-			dados[linha][0] = t.getCodigo();
-			dados[linha][1] = t.getTitulo();
-			dados[linha][7] = t.getResponsavel();
-			linha++;
-		}
-		
-		tblTabela = new JTable(dados, colunas);
-		
-		scrollTabela = new JScrollPane(tblTabela);
-		scrollTabela.setBounds(20, 65, 500, 300);
-//			
-		btnNovo = new JButton("Cadastrar");
-		btnNovo.setBounds(20, 380, 120, 40);
+		btnNovo = new JButton("Nova Tarefa");
+		btnNovo.setBounds(20, 380, 150, 40);
 		btnNovo.addActionListener(new ActionListener() {
 			
 			@Override
@@ -86,8 +59,36 @@ public class FrameListaTarefa {
 			}
 		});
 		
+//		Criação da tabela
+		String[] colunas = new String[3];
+		colunas[0] = "Código";
+		colunas[1] = "Titulo";
+		colunas[2] = "Responsável";
+		
+		// Obter lista de funcionários
+		TarefaDAO dao = new TarefaDAO(null);
+		
+		List<Tarefa> tarefas = dao.showTask();
+		
+		Object[][] dados = new Object[tarefas.size()][3];
+		
+		int linha = 0;
+		for(Tarefa t : tarefas) {
+			dados[linha][0] = t.getCodigo();
+			dados[linha][1] = t.getTitulo();
+			dados[linha][8] = t.getResponsavel();
+			linha++;
+		}
+		
+		tblTabela = new JTable(dados, colunas);
+		
+		scrollTabela = new JScrollPane(tblTabela);
+		scrollTabela.setBounds(20, 65, 500, 300);
+		
+		DefaultTableModel model = new DefaultTableModel(colunas, 0);
+		
 		btnSair = new JButton("Sair");
-		btnSair.setBounds(150, 380, 120, 40);
+		btnSair.setBounds(178, 380, 150, 40);
 		btnSair.addActionListener(new ActionListener() {
 
 			@Override

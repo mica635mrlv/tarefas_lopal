@@ -1,4 +1,4 @@
-package br.dev.milla.tarefas.ui;
+package br.dev.milla.tarefas.gui;
 
 import java.awt.Container;
 import java.awt.Font;
@@ -16,11 +16,13 @@ import javax.swing.JTable;
 
 import br.dev.milla.tarefas.dao.FuncionarioDAO;
 import br.dev.milla.tarefas.model.Funcionario;
+import br.dev.milla.tarefas.ui.FrameListaFuncionario;
+import br.dev.milla.tarefas.ui.FrameListaTarefa;
 
 public class FrameInicial {
 
 	private JLabel lblInfo;
-	private JButton btnFuncionarios, btnTarefas, btnSair;
+	private JButton btnFuncionarios, btnTarefas;
 	
 	private Font fontTitulo = new Font("Arial", Font.BOLD, 15);
 	
@@ -74,3 +76,4 @@ public class FrameInicial {
 	}
 	
 }
+

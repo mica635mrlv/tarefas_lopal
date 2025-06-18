@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import br.dev.milla.tarefas.dao.FuncionarioDAO;
+import br.dev.milla.tarefas.dao.TarefaDAO;
 import br.dev.milla.tarefas.model.Funcionario;
 import br.dev.milla.tarefas.model.Tarefa;
 import br.dev.milla.tarefas.utils.Utils;
@@ -89,20 +90,41 @@ public class FrameTarefa {
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.setBounds(20, 455, 120, 40);
 		btnSalvar.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Tarefa tarefa = new Tarefa();
+				tarefa.setCodigo(Utils.fazerUUID());
 				tarefa.setTitulo(txtTitulo.getText());
 				tarefa.setResponsavel(null);
+
+				TarefaDAO dao = new TarefaDAO(tarefa);
+				dao.gravar();
+
+				JOptionPane.showMessageDialog(
+					tela,
+					txtTitulo.getText() + " gravado com sucesso",
+					"Sucesso",
+					JOptionPane.INFORMATION_MESSAGE
+				);
 			}
 		});
 		
 		btnSair = new JButton("Sair");
 		btnSair.setBounds(150, 455, 120, 40);
 		btnSair.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				tela.dispose();
+				int resposta = JOptionPane.showConfirmDialog(
+						tela, 
+						"Confirma a saída do sistema?", 
+						"Sair do Sistema",
+						JOptionPane.YES_NO_OPTION);
+
+				if (resposta == 0) {
+					tela.dispose();
+				}
 			}
 		});
 		
