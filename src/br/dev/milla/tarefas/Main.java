@@ -20,7 +20,7 @@ import br.dev.milla.tarefas.utils.Utils;
 
 public class Main {
 
-	private static String path = "C:\\Users\\milla\\OneDrive\\DS - SENAI\\tarefas.txt";
+	private static String path = "C:\\Users\\milla\\OneDrive\\DS - SENAI\\tarefas.cvs";
 
 	public static void main(String[] args) {
 

@@ -12,14 +12,5 @@ public class Utils {
 		return uuidStr;
 		
 	}
-
-	public static String fazerUUID() {
-		
-		UUID uuidCodigo = UUID.randomUUID();
-		String uuidString = uuidCodigo.toString().substring(0, 8);
-		
-		return uuidString;
-		
-	}
 	
 }

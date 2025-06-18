@@ -18,21 +18,18 @@ public class FileFactory {
 	private String pathFuncionarios = "C:\\Users\\milla\\OneDrive\\DS - SENAI\\funcionarios.csv";
 
 	public BufferedReader getBufferedReader() throws FileNotFoundException, IOException {
-		
+
 		fr = new FileReader(pathFuncionarios);
 		br = new BufferedReader(fr);
-
 		return br;
-		
+
 	}
 
-	public BufferedWriter getBufferedWriter() throws FileNotFoundException, IOException {
-		
+	public BufferedWriter getBuferredWriter() throws FileNotFoundException, IOException {
+
 		fw = new FileWriter(pathFuncionarios, true);
 		bw = new BufferedWriter(fw);
-
 		return bw;
-
 	}
 
 }

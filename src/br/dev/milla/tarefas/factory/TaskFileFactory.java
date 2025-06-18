@@ -8,22 +8,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class TaskFileFactory {
-		
+	
 	private FileWriter fw;
 	private BufferedWriter bw;
-		
+	
 	private FileReader fr;
 	private BufferedReader br;
 	
 	private String pathTarefas = "C:\\Users\\milla\\OneDrive\\DS - SENAI\\tarefas.cvs";
-		
+	
 	public BufferedReader getBufferedReader() throws FileNotFoundException, IOException {
-			
+		
 		fr = new FileReader(pathTarefas);
 		br = new BufferedReader(fr);
 		return br;
 		
-		}
+	}
 
 	public BufferedWriter getBufferedWriter() throws FileNotFoundException, IOException {
 
@@ -34,4 +34,3 @@ public class TaskFileFactory {
 	}
 
 }
-

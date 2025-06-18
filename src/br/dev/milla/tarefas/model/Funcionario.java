@@ -39,8 +39,7 @@ public class Funcionario {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
+	public String formatarArq() {
 		return this.codigo + "," + this.nome + "," + this.telefone + "," + this.email + "\n";
 	}
 	

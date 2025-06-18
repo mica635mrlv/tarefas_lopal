@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -18,12 +19,9 @@ import br.dev.milla.tarefas.model.Funcionario;
 
 public class FrameListaFuncionario {
 
-	private JLabel lblTitulo;
 	private JTable tblFuncionarios;
 	private JScrollPane scrollFuncionarios;
-	private JButton btnNovo, btnExcluir, btnAtualizar, btnSair;
-	
-	private Font fontTitulo = new Font("Arial", Font.BOLD, 26);
+	private JButton btnNovo, btnSair;
 	
 	public FrameListaFuncionario() {
 		criarTela();
@@ -33,17 +31,13 @@ public class FrameListaFuncionario {
 		
 		JFrame tela = new JFrame();
 		tela.setTitle("Cadastro de Funcionários");
-		tela.setSize(600, 600);
+		tela.setSize(553, 500);
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tela.setResizable(false);
 		tela.setLayout(null);
 		tela.setLocationRelativeTo(null);
 		
 		Container painel = tela.getContentPane();
-		
-		lblTitulo = new JLabel("Cadastro de Funcinários");
-		lblTitulo.setBounds(20, 25, 500, 20);
-		lblTitulo.setFont(fontTitulo);
 		
 		//Criação da tabela
 		String[] colunas = new String[3];
@@ -69,10 +63,10 @@ public class FrameListaFuncionario {
 		tblFuncionarios = new JTable(dados, colunas);
 		
 		scrollFuncionarios = new JScrollPane(tblFuncionarios);
-		scrollFuncionarios.setBounds(20, 65, 500, 300);
+		scrollFuncionarios.setBounds(20, 20, 500, 365);
 			
 		btnNovo = new JButton("Cadastrar");
-		btnNovo.setBounds(20, 380, 100, 40);
+		btnNovo.setBounds(20, 400, 150, 40);
 		btnNovo.addActionListener(new ActionListener() {
 			
 			@Override
@@ -80,10 +74,28 @@ public class FrameListaFuncionario {
 				new FrameFuncionario(tela);
 			}
 		});
+		
+		btnSair = new JButton("Sair");
+		btnSair.setBounds(180, 400, 150, 40);
+		btnSair.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int resposta = JOptionPane.showConfirmDialog(
+						tela, 
+						"Confirma a saída do sistema?", 
+						"Sair do Sistema",
+						JOptionPane.YES_NO_OPTION);
+
+				if (resposta == 0) {
+					tela.dispose();
+				}
+			}
+		});
 				
-		painel.add(lblTitulo);
 		painel.add(scrollFuncionarios);
 		painel.add(btnNovo);
+		painel.add(btnSair);
 		
 		tela.setVisible(true);
 		
